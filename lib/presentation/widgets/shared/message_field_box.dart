@@ -19,20 +19,18 @@ class MessageFieldBox extends StatelessWidget {
         suffixIcon: IconButton(
           icon: const Icon(Icons.send_outlined),
           onPressed: () {
-            print('Valor de la caja de texto');
+            final textValue = textController.value.text;
+            print('Valor obtenido de lo enviado en el teclado $textValue');
+            textController.clear();
           },
         ));
 
     return TextFormField(
-      controller: textController,
-      decoration: inputDecoration,
-      onFieldSubmitted: (value) {
-        print('Submit value $value');
-        textController.clear();
-      },
-      onChanged: (value) {
-        print('Changed: $value');
-      },
-    );
+        controller: textController,
+        decoration: inputDecoration,
+        onFieldSubmitted: (value) {
+          print('Submit value $value');
+          textController.clear();
+        });
   }
 }
