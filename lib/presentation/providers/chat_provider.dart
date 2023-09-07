@@ -14,6 +14,6 @@ class ChatProvider extends ChangeNotifier {
     final newMessage = Message(text: text, fromWho: FromWho.me);
     messageList.add(newMessage);
 
-    notifyListeners();
+    notifyListeners(); // Se notifica que hubo un cambio
   }
 }
