@@ -2,10 +2,12 @@
 // if the 'Gestor de estados' would be BLoC the folder would be called BloC or someting like that
 
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/config/helpers/get_yes_no_answer.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
 
 class ChatProvider extends ChangeNotifier {
   final ScrollController chatScrollController = ScrollController();
+  final GetYesNoAnswer getYesNoAnswer = GetYesNoAnswer();
 
   List<Message> messageList = [
     Message(text: 'Oliwis', fromWho: FromWho.me),
@@ -18,8 +20,17 @@ class ChatProvider extends ChangeNotifier {
     final newMessage = Message(text: text, fromWho: FromWho.me);
     messageList.add(newMessage);
 
+    if (text.endsWith('?')) {
+      herReply();
+    }
+
     notifyListeners(); // Se notifica que hubo un
     moveScrollToBotton(); // Se llama a la funcion del scroll
+  }
+
+// Funcion para obtener la respuesta de ella con el metododo http
+  Future<void> herReply() async {
+    final herMessage = await getYesNoAnswer.getAnswer();
   }
 
 // Funcion para hacer que el chat se vaya desplazando mientras se va llenando la pantalla
