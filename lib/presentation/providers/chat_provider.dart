@@ -23,7 +23,11 @@ class ChatProvider extends ChangeNotifier {
   }
 
 // Funcion para hacer que el chat se vaya desplazando mientras se va llenando la pantalla
-  void moveScrollToBotton() {
+  Future<void> moveScrollToBotton() async {
+    await Future.delayed(const Duration(
+        milliseconds:
+            100)); // Restraso intencional para que se pueda hacer bien el scroll
+
     chatScrollController.animateTo(
         chatScrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300),
