@@ -10,9 +10,7 @@ class GetYesNoAnswer {
 
     final yesNoModel = YesNoModel.fromJsonMap(response.data);
 
-    return Message(
-        text: yesNoModel.answer,
-        fromWho: FromWho.hers,
-        imageUrl: yesNoModel.image);
+    return yesNoModel
+        .toMessaEntity(); // Esto es lo que al final devuelvo en el chat
   }
 }
