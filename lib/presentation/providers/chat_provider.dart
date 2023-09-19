@@ -31,6 +31,9 @@ class ChatProvider extends ChangeNotifier {
 // Funcion para obtener la respuesta de ella con el metododo http
   Future<void> herReply() async {
     final herMessage = await getYesNoAnswer.getAnswer();
+    messageList.add(herMessage);
+    notifyListeners();
+    moveScrollToBotton();
   }
 
 // Funcion para hacer que el chat se vaya desplazando mientras se va llenando la pantalla

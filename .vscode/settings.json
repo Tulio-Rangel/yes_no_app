@@ -1,0 +1,9 @@
+{
+    "scm.diffDecorationsIgnoreTrimWhitespace": "false",
+    "scm.providerCountBadge": "hidden",
+    "scm.showActionButton": true,
+    "scm.alwaysShowRepositories": false,
+    "scm.autoReveal": true,
+    "scm.defaultViewMode": "list",
+    "scm.defaultViewSortKey": "path"
+}
